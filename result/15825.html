@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <title>Tree View</title>
+        <link rel="stylesheet" href="AcidJs.CSS3Treeview/styles/CSS3Treeview.css" />
+    </head>
+    <body>
+        <h1>Category Tree View</h1>
+
+        
+        
+        <div class="html-chunk">
+        
+            <div class="acidjs-css3-treeview">
+                <ul>
+                    <li><input type="checkbox" id="node-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0">ID:15825-Commercial-Level:1-Best Offer:no</label></li>
+                </ul>
+            </div>
+        </div>
+        <script src="AcidJs.CSS3Treeview/lib/jquery-1.11.1.min.js"></script>
+        <script>
+        $(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function() {
+            var
+                checkbox = $(this),
+                nestedList = checkbox.parent().next().next(),
+                selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+            
+            if(checkbox.is(":checked")) {
+                return selectNestedListCheckbox.prop("checked", true);
+            }
+            selectNestedListCheckbox.prop("checked", false);
+        });
+        </script>
+    </body>
+</html>

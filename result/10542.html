@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <meta charset="utf-8" />
+        <title>Tree View</title>
+        <link rel="stylesheet" href="AcidJs.CSS3Treeview/styles/CSS3Treeview.css" />
+    </head>
+    <body>
+        <h1>Category Tree View</h1>
+
+        
+        
+        <div class="html-chunk">
+        
+            <div class="acidjs-css3-treeview">
+                <ul>
+                    <li><input type="checkbox" id="node-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0">ID:10542-&nbsp;<b>Real Estate</b>-&nbsp;Level:1-&nbsp;Best Offer:no</label><ul><li><input type="checkbox" id="node-0-0" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-0">ID:1607-&nbsp;<b>Other Real Estate</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li><li><input type="checkbox" id="node-0-1" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-1">ID:12605-&nbsp;<b>Residential</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li><li><input type="checkbox" id="node-0-2" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-2">ID:15825-&nbsp;<b>Commercial</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li><li><input type="checkbox" id="node-0-3" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-3">ID:15841-&nbsp;<b>Land</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li><li><input type="checkbox" id="node-0-4" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-4">ID:15897-&nbsp;<b>Timeshares for Sale</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li><li><input type="checkbox" id="node-0-5" checked="checked" /><label><input type="checkbox" /><span></span></label><label for="node-0-5">ID:94825-&nbsp;<b>Manufactured Homes</b>-&nbsp;Level:2-&nbsp;Best Offer:no</label></li>
+                </ul>
+            </div>
+        </div>
+        <script src="AcidJs.CSS3Treeview/lib/jquery-1.11.1.min.js"></script>
+        <script>
+        $(".acidjs-css3-treeview").delegate("label input:checkbox", "change", function() {
+            var
+                checkbox = $(this),
+                nestedList = checkbox.parent().next().next(),
+                selectNestedListCheckbox = nestedList.find("label:not([for]) input:checkbox");
+            
+            if(checkbox.is(":checked")) {
+                return selectNestedListCheckbox.prop("checked", true);
+            }
+            selectNestedListCheckbox.prop("checked", false);
+        });
+        </script>
+    </body>
+</html>
