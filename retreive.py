@@ -20,11 +20,12 @@ def getData( conn, rowid ):
 				'SELECT DISTINCT C.Id, C.Name, C.ParentID, uc.Level+1, C.BestOfferEnabled, '\
 					'(SELECT COUNT(*) FROM CATEGORY AS CT WHERE CT.PARENTID = C.ID) AS CN '\
 				  'FROM CATEGORY AS C INNER JOIN under_category AS uc ON C.ParentId=uc.Id '\
-				 'ORDER BY 4 '\
+				 'ORDER BY 4 DESC, c.Name '\
 			  ') '\
 			'SELECT Id,Name, ParentID, Level, BestOfferEnabled, Count '\
 			'FROM under_category;'
 	cursor.execute(query, (rowid,))
+	print query
 
 	arrData = cursor.fetchall()
 	conn.close()
