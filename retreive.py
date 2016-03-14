@@ -25,7 +25,7 @@ def getData( conn, rowid ):
 			'SELECT Id,Name, ParentID, Level, BestOfferEnabled, Count '\
 			'FROM under_category;'
 	cursor.execute(query, (rowid,))
-	print query
+	#print query
 
 	arrData = cursor.fetchall()
 	conn.close()
