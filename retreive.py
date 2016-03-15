@@ -77,10 +77,19 @@ def setHtml( arrData ):
 	
 	return sInfoHtml
 	
+
+if len(sys.argv) == 1:
+	sys.exit("The category is missing")
+try:
+	value=int(sys.argv[1])
+except ValueError:
+	sys.exit("Your input should be a number")
 	
 if os.path.exists('Categories'):
 
 	arrData = []
+	
+
 
 	with open('root/template.html', 'r') as rTemplate:
 		sData = rTemplate.read()
@@ -94,7 +103,7 @@ if os.path.exists('Categories'):
 			
 			sData = sData.replace("{@htmldata@}",sInfoHtml)
 			with open('result/' + sys.argv[1] + '.html', 'w') as wResult:
-				wResult.write(sData)
+				wResult.write(sData.encode('utf8'))
 				wResult.close()
 	rTemplate.close()
 	
