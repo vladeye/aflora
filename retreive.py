@@ -64,8 +64,13 @@ def setHtml( arrData ):
 		else:
 			sBestOffer = "no"
 					
-		if iPastLevel > row[3]:
-			sInfoHtml = sInfoHtml + "</ul><li>" + sHtmlCategory.replace("{@node@}", sNodeInf).replace("{@id@}", str(row[0])).replace("{@category@}", row[1]).replace("{@bestoffer@}", sBestOffer).replace("{@level@}", str(row[3]))
+		sCloseBase = "</ul></li>"
+		sCloseFinal = ""
+
+		if iPastLevel > row[3]:		
+			for x in range(0, iPastLevel - row[3]):
+				sCloseFinal = sCloseFinal + sCloseBase
+			sInfoHtml = sInfoHtml + sCloseFinal + "<li>" + sHtmlCategory.replace("{@node@}", sNodeInf).replace("{@id@}", str(row[0])).replace("{@category@}", row[1]).replace("{@bestoffer@}", sBestOffer).replace("{@level@}", str(row[3]))
 		else:
 			sInfoHtml = sInfoHtml + "<li>" + sHtmlCategory.replace("{@node@}", sNodeInf).replace("{@id@}", str(row[0])).replace("{@category@}", row[1]).replace("{@bestoffer@}", sBestOffer).replace("{@level@}", str(row[3]))
 		if row[5] == 0: 
