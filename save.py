@@ -32,11 +32,12 @@ def downloadChunks(url):
 				chunk = req.read(CHUNK)
 				if not chunk: break
 				fp.write(chunk)
+			fp.close()
 	except urllib2.HTTPError as e:
-		print e.error
+		print e.code
 		return false
 	except urllib2.URLError as e:
-		print e.error
+		print e.code
 		return false
 		
 	return file
