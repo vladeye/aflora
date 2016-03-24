@@ -5,7 +5,7 @@ if [[ $# -eq 0 ]] ; then
     echo 'You have to supply an argument'
     exit 1
 fi
-if [[ $# -eq 1 ]] ; then
+if [[ "$1" = "--render" && $# -eq 1 ]] ; then
     echo 'You have to supply an additional argument'
     exit 1
 fi
